@@ -13,16 +13,7 @@ Unlike traditional finite-volume CFD solvers, this approach eliminates the need 
   2. **L-BFGS Optimizer:** A second-order quasi-Newton method applied in the final stages to automatically scale step sizes based on Hessian curvature, aggressively driving the complex PDE residuals to near-zero.
 
 ## Governing Equations
-The physical constraints enforced within the network's loss function are the steady-state, incompressible Navier-Stokes equations:
-
-**Continuity (Mass Conservation):**
-$$ \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0 $$
-
-**X-Momentum:**
-$$ u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \frac{\partial p}{\partial x} - \frac{1}{Re} \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) = 0 $$
-
-**Y-Momentum:**
-$$ u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{\partial p}{\partial y} - \frac{1}{Re} \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right) = 0 $$
+The physical constraints enforced within the network's loss function are the steady-state, incompressible Navier-Stokes equations, namely continuity equation, and x and y momentum equations
 
 ## Validation & Results
 The continuous velocity predictions extracted from the PINN were benchmarked against the foundational 1982 numerical study by Ghia et al. 
